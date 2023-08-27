@@ -9,11 +9,22 @@
     background-size: cover;
     height: 35vh;
 
+    @include Mobile{
+        padding-inline: 2rem;    
+        background-image: url('../../images//pattern-bg-mobile.png');   
+    }
+
     h1{
         color: #fff;
         font-weight: 500;
         font-size: 2rem;
         padding-block: 2rem;
+
+        @include Mobile{
+            font-size: 1.5rem;
+            padding-block: 1rem;
+            }
+
     }
 
     .inputWrapper{
@@ -26,11 +37,20 @@
         overflow: hidden;
         cursor: pointer;
 
+        @include Mobile{
+        width: 100%; 
+        }
+
         input{
             width: 100%;
             padding: 1.1rem 1.5rem;
             color: #444;
             font-size: 18px;
+
+            @include Mobile{
+                font-size: 15px;
+                padding: .8rem 1.2rem;
+            }
 
             &::placeholder{
                 opacity: .7;
@@ -44,6 +64,11 @@
 
             &:hover{
                 background: #555;
+
+            }
+
+            @include Mobile{
+                padding: .8rem 1.2rem;
             }
         }
     }
@@ -65,12 +90,33 @@
         transform: translateX(-50%);
         z-index: 10;
 
+        @include Mobile{
+            flex-direction: column;   
+            text-align: center;
+            width: 85%;
+            margin-top: 1rem;
+            padding-block: 1rem ;
+        }
+
         .info{
             padding-inline: 2rem 4rem;
             height: 100px;
+
+            @include Mobile{
+                height: initial;
+                margin-bottom: 1.5rem;
+            }
+
+            @include Mobile{
+                padding-inline: 2rem;
+            }
             
             &:not(:last-child){
                 border-right: .5px solid #555;
+
+                @include Mobile{
+                    border: none;
+                }
 
             }
 
@@ -79,12 +125,23 @@
                 letter-spacing: 2px;
                 color: #999;
                 margin-bottom: 1rem;
+
+                @include Mobile{
+                    font-size: 10px;
+                    margin-bottom: 0.5rem;
+                    }
             }
 
             p{
                 font-size: 1.3rem;
                 font-weight: 500;
                 width: 200px;
+                color: #444;
+
+                @include Mobile{
+                    font-size: 1rem;
+                    width: 100%;
+                    }
             }
         }
     }
