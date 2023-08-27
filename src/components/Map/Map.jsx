@@ -1,21 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Map.scss";
-import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
+import { MapContainer,TileLayer } from "react-leaflet";
 import 'leaflet/dist/leaflet.css'
-import Icon from "../../Icon";
+import MarkerPosition from "../MarkerPosition";
 
-const Map = () => {
+const Map = ({address}) => {
+
+  const position = [address?.location.lat, address?.location.lng]
+
   return (
+    address && 
     <div className="map">
       <MapContainer
-        center={[9.156369, 7.322036]}
+        center={position}
         zoom={13}
         style={{ height: "65vh", width: "100vw" }}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        <Marker icon={Icon} position={[9.156369, 7.322036]}>
-          <Popup>Paks lives here. Come over for a cup of coffee 😊</Popup>
-        </Marker>
+      <MarkerPosition address={address}/>
       </MapContainer>
     </div>
   );
